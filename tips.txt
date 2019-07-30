@@ -9,12 +9,8 @@ postgreのdataディレクトリをvolumes指定するとエラーになる
 nodeサーバで
 #接続
 docker exec -it node-dev /bin/sh
-#express作成 /appはプロジェクト名
-express -f --view=ejs /app
-npm install -g jquery --save
-npm install -g bootstrap@4 --save
-npm install -g pg --save
-npm install
+#初期化シェル実行
+sh init.sh
 
 
 #起動

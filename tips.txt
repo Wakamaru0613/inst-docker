@@ -1,18 +1,30 @@
-dockerをまとめてビルド・起動 -dはバックグラウンド実行
-docker-compose up --build -d
 
-プロジェクトフォルダは例のごとく英数字のみ
 
-postgreのdataディレクトリをvolumes指定するとエラーになる
-
-起動後
+##起動後
 nodeサーバで
 #接続
 docker exec -it node-dev /bin/sh
 #初期化シェル実行
-sh init.sh
-
+cd app
+sh ../init.sh
 
 #起動
+npm install 
 npm start
 
+
+##Tips
+#すべてのコンテナ削除（重複しているとエラーになったりする）
+docker stop $(docker ps -q)
+
+#docker再起動
+右下Dockerマークよりrestart
+
+#バックグラウンド実行
+docker -d #-dオプション　注意：起動時のエラーとかみえなくなる
+
+#dockerをまとめてビルド・起動 -dはバックグラウンド実行
+docker-compose up --build -d
+
+#プロジェクトフォルダは例のごとく英数字のみ
+postgreのdataディレクトリをvolumes指定するとエラーになる
